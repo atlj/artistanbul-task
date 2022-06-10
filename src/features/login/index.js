@@ -1,7 +1,4 @@
-import { User } from "../user";
 import { validateUsername } from "./utils";
-
-let user = null;
 
 const loginForm = document.getElementById("login-form");
 
@@ -14,8 +11,6 @@ function onSubmit(event) {
 
   if (validateUsername(username)) {
     setUrl(username);
-    hideLoginScreen();
-    showMainScreen();
   }
 }
 
@@ -24,5 +19,3 @@ function setUrl(username) {
   urlParams.set("username", username);
   window.location.search = urlParams;
 }
-
-export { user };
