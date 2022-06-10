@@ -1,8 +1,40 @@
 @import "./reset.css";
 @import "utils/variables.scss";
 @import "utils/mixins.scss";
+@import "utils/normalize.css";
+@import "utils/functions.scss";
 
-#app {
+.button {
+  border-radius: 4px;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  font-size: rem(18);
+  padding: 8px 42px;
+  cursor: pointer;
+
+  @include md {
+    font-size: rem(24);
+    width: 256px;
+    height: 44px;
+  }
+
+  &--primary {
+    background-color: $color-white;
+    box-shadow: 4px 4px 16px rgba(39, 39, 39, 0.25),
+      inset -4px -4px 16px rgba(39, 39, 39, 0.1),
+      inset 4px 4px 16px rgba(39, 39, 39, 0.07);
+    color: $color-black;
+  }
+
+  &--secondary {
+    background-color: $color-secondary;
+    box-shadow: 4px 4px 16px 0px #2727271a;
+    color: $color-white;
+  }
+}
+
+.screen {
   font-family: Arial;
   width: 100vw;
   height: 100vh;
@@ -10,4 +42,37 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: $color-neutral;
+
+  &__login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.login-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__title {
+    font-weight: 700;
+    color: black;
+    font-size: rem(24);
+    margin-bottom: 24px;
+  }
+
+  &__input {
+    border: 1px solid #272727;
+    padding: 10px;
+    color: $color-black;
+    font-size: rem(16);
+    background-color: $color-neutral;
+    margin-bottom: 64px;
+
+    @include md {
+      font-size: rem(24);
+      width: rem(400);
+    }
+  }
 }
