@@ -6,11 +6,69 @@
     <title>artistanbul task</title>
   </head>
   <body>
-    <div id="login-screen" class="screen screen__login">
+    <!-- <div id="login-screen" class="screen screen__login">
       <form class="login-box" id="login-form">
-        <label class="login-box__title">Username</label>
+        <label for="username" class="login-box__title text text--h2">Username</label>
         <input class="login-box__input" type="text" name="username" />
         <button type="submit" class="button button--primary">Continue</button>
+      </form>
+    </div> -->
+    <div id="main-screen" class="screen screen__main">
+      <h1 class="screen__main--title text text--h1">To do</h1>
+      <div class="screen__main--content">
+        <button class="button button--primary" id="add-todo">
+          Add New Task
+        </button>
+        <div class="todo-day">
+          <div class="todo-day__date-row text text--h2">
+            <img
+              src="./public/icons/Calendar.svg"
+              alt="Calendar icon"
+              class="todo-day__date-row--icon"
+            />
+            Tuesday, March 12
+          </div>
+          <div class="todo">
+            <div class="todo__box">
+              <img
+                src="./public/icons/Check.svg"
+                alt="Check icon"
+                class="todo__check-icon"
+              />
+            </div>
+            <div class="todo__box todo__box--text text text--t1">Meet Ann</div>
+            <div class="todo__box">
+              <img
+                src="./public/icons/Edit.svg"
+                alt="Edit icon"
+                class="todo__edit-icon"
+              />
+            </div>
+            <div class="todo__box">
+              <img
+                src="./public/icons/Trash.svg"
+                alt="Delete icon"
+                class="todo__delete-icon"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal-screen" class="screen screen__modal">
+      <form class="modal">
+        <div class="modal__section">
+          <label for="title" class="text text--h2"> Title</label>
+          <input class="modal__input modal__input--title" name="title" />
+        </div>
+        <div class="modal__section">
+          <label for="date" class="text text--h2">Date</label>
+          <input type="date" class="modal__input" name="date" />
+        </div>
+        <div class="modal__button-container">
+          <button class="button button--secondary">Cancel</button>
+          <button type="submit" class="button button--secondary">Save</button>
+        </div>
       </form>
     </div>
     <script type="module" src="src/index.js"></script>
