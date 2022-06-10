@@ -1,0 +1,13 @@
+@import "./reset.css";
+@import "utils/variables.scss";
+@import "utils/mixins.scss";
+
+#app {
+  font-family: Arial;
+  width: 100vw;
+  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  background-color: $color-neutral;
+}

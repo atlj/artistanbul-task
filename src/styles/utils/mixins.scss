@@ -1,0 +1,13 @@
+@import "./variables.scss";
+
+@mixin md {
+  @media (min-width: $screen-md-min) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: $screen-xl-min) {
+    @content;
+  }
+}
