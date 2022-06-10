@@ -13,25 +13,16 @@ function onSubmit(event) {
   const username = formData.get("username");
 
   if (validateUsername(username)) {
-    createUser(username);
+    setUrl(username);
     hideLoginScreen();
     showMainScreen();
   }
 }
 
-function createUser(username) {
-  user = new User(username);
-}
-
-function hideLoginScreen() {
-  const loginScreen = document.getElementById("login-screen");
-  loginScreen.classList.add("screen--hidden");
-}
-
-function showMainScreen() {
-  const mainScreen = document.getElementById("main-screen");
-
-  mainScreen.classList.remove("screen--hidden");
+function setUrl(username) {
+  const urlParams = new URLSearchParams();
+  urlParams.set("username", username);
+  window.location.search = urlParams;
 }
 
 export { user };
