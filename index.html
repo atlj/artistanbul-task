@@ -6,14 +6,16 @@
     <title>artistanbul task</title>
   </head>
   <body>
-    <!-- <div id="login-screen" class="screen screen__login">
+    <div id="login-screen" class="screen screen__login">
       <form class="login-box" id="login-form">
-        <label for="username" class="login-box__title text text--h2">Username</label>
+        <label for="username" class="login-box__title text text--h2"
+          >Username</label
+        >
         <input class="login-box__input" type="text" name="username" />
         <button type="submit" class="button button--primary">Continue</button>
       </form>
-    </div> -->
-    <div id="main-screen" class="screen screen__main">
+    </div>
+    <div id="main-screen" class="screen--hidden screen screen__main">
       <h1 class="screen__main--title text text--h1">To do</h1>
       <div class="screen__main--content">
         <button class="button button--primary" id="add-todo">
@@ -22,7 +24,7 @@
         <div class="todo-day">
           <div class="todo-day__date-row text text--h2">
             <img
-              src="./public/icons/Calendar.svg"
+              src="/icons/Calendar.svg"
               alt="Calendar icon"
               class="todo-day__date-row--icon"
             />
@@ -31,7 +33,7 @@
           <div class="todo">
             <div class="todo__box">
               <img
-                src="./public/icons/Check.svg"
+                src="/icons/Check.svg"
                 alt="Check icon"
                 class="todo__check-icon"
               />
@@ -39,14 +41,14 @@
             <div class="todo__box todo__box--text text text--t1">Meet Ann</div>
             <div class="todo__box">
               <img
-                src="./public/icons/Edit.svg"
+                src="/icons/Edit.svg"
                 alt="Edit icon"
                 class="todo__edit-icon"
               />
             </div>
             <div class="todo__box">
               <img
-                src="./public/icons/Trash.svg"
+                src="/icons/Trash.svg"
                 alt="Delete icon"
                 class="todo__delete-icon"
               />
@@ -55,8 +57,8 @@
         </div>
       </div>
     </div>
-    <div id="modal-screen" class="screen screen__modal">
-      <form class="modal">
+    <div id="modal-screen" class="screen--hidden screen screen__modal">
+      <form id="new-todo" class="modal">
         <div class="modal__section">
           <label for="title" class="text text--h2"> Title</label>
           <input class="modal__input modal__input--title" name="title" />
@@ -71,6 +73,6 @@
         </div>
       </form>
     </div>
-    <script type="module" src="src/index.js"></script>
+    <script type="module" src="./src/index.js"></script>
   </body>
 </html>

@@ -82,10 +82,15 @@ html {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
 
+  &--hidden {
+    display: none !important;
+  }
+
   &__login {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
   }
 
   &__main {
