@@ -69,10 +69,14 @@
   }
 }
 
-.screen {
-  max-width: 100vw;
-  height: 100vh;
+body,
+html {
   background-color: $color-neutral;
+}
+
+.screen {
+  max-width: 100%;
+  height: 100%;
   font-family: Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -116,10 +120,9 @@
   &__modal {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0px;
     left: 0px;
-    right: 0px;
     background-color: $color-secondary-50;
 
     display: flex;
