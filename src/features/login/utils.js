@@ -1,3 +1,3 @@
 export function validateUsername(username) {
-  return username.length > 0;
+  return username.trim().length > 0;
 }
