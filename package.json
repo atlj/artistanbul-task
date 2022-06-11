@@ -7,7 +7,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "cypress": "cypress open baseUrl=http://localhost:3000"
+    "cypress": "cypress open"
   },
   "devDependencies": {
     "cypress": "^10.1.0",
