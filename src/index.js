@@ -1,6 +1,5 @@
 import "./styles/index.scss";
 import "./features/login";
-import "./features/newTodo";
 import "./features/main";
 import "./features/modal";
 import { writeTodosToDom } from "./features/main";

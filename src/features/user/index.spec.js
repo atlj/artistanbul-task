@@ -85,4 +85,17 @@ describe("User class", () => {
       ],
     });
   });
+
+  it("should return false if date doesnt exist", () => {
+    const username = "test";
+    const user = new User(username);
+    expect(user.checkIfDateExists("10-10-2021")).toBe(false);
+  });
+
+  it("should return true if date exists", () => {
+    const username = "test";
+    const user = new User(username);
+    user.addTodo({ description: "test", isDone: false, date: "10-10-2021" });
+    expect(user.checkIfDateExists("10-10-2021")).toBe(true);
+  });
 });

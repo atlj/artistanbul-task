@@ -43,4 +43,8 @@ export class User {
   changeTodoDescription(id, description) {
     this.todos = changeTodoDescription(this.todos, id, description);
   }
+
+  checkIfDateExists(date) {
+    return this.categorizedTodos.hasOwnProperty(date);
+  }
 }
