@@ -1,6 +1,9 @@
 import "./styles/index.scss";
 import "./features/login";
 import "./features/newTodo";
+import "./features/main";
+import "./features/modal";
+import { writeTodosToDom } from "./features/main";
 
 function hideLoginScreen() {
   const loginScreen = document.getElementById("login-screen");
@@ -11,6 +14,7 @@ function showMainScreen() {
   const mainScreen = document.getElementById("main-screen");
 
   mainScreen.classList.remove("screen--hidden");
+  writeTodosToDom();
 }
 
 function handleUrl() {

@@ -1,4 +1,9 @@
-import { addTodo, deleteTodoById } from "./utils";
+import {
+  addTodo,
+  categorizeTodosByDate,
+  deleteTodoById,
+  changeTodoDescription,
+} from "./utils";
 import { describe, expect, it } from "vitest";
 
 describe("User utilities", () => {
@@ -62,6 +67,90 @@ describe("User utilities", () => {
         0
       )
     ).toStrictEqual([
+      {
+        description: "test2",
+        isDone: false,
+        id: 1,
+        date: "2020-01-01",
+      },
+    ]);
+  });
+
+  it("should categorize todos by date", () => {
+    expect(
+      categorizeTodosByDate([
+        {
+          description: "test",
+          isDone: false,
+          id: 0,
+          date: "2020-01-01",
+        },
+        {
+          description: "test2",
+          isDone: false,
+          id: 1,
+          date: "2020-01-01",
+        },
+        {
+          description: "test3",
+          isDone: false,
+          id: 2,
+          date: "2020-01-02",
+        },
+      ])
+    ).toStrictEqual({
+      "2020-01-01": [
+        {
+          description: "test",
+          isDone: false,
+          id: 0,
+          date: "2020-01-01",
+        },
+        {
+          description: "test2",
+          isDone: false,
+          id: 1,
+          date: "2020-01-01",
+        },
+      ],
+      "2020-01-02": [
+        {
+          description: "test3",
+          isDone: false,
+          id: 2,
+          date: "2020-01-02",
+        },
+      ],
+    });
+  });
+
+  it("should change todo description", () => {
+    expect(
+      changeTodoDescription(
+        [
+          {
+            description: "test",
+            isDone: false,
+            id: 0,
+            date: "2020-01-01",
+          },
+          {
+            description: "test2",
+            isDone: false,
+            id: 1,
+            date: "2020-01-01",
+          },
+        ],
+        0,
+        "test3"
+      )
+    ).toStrictEqual([
+      {
+        description: "test3",
+        isDone: false,
+        id: 0,
+        date: "2020-01-01",
+      },
       {
         description: "test2",
         isDone: false,

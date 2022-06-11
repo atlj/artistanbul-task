@@ -67,4 +67,22 @@ describe("User class", () => {
 
     expect(user.todos).toStrictEqual([]);
   });
+
+  it("should categorize todos", () => {
+    const username = "test";
+    const user = new User(username);
+    user.addTodo({ description: "test", isDone: false, date: "10-10-2021" });
+    user.addTodo({ description: "test2", isDone: false, date: "10-10-2021" });
+    user.addTodo({ description: "test3", isDone: false, date: "10-12-2021" });
+
+    expect(user.categorizedTodos).toStrictEqual({
+      "10-10-2021": [
+        { description: "test", isDone: false, id: 0, date: "10-10-2021" },
+        { description: "test2", isDone: false, id: 1, date: "10-10-2021" },
+      ],
+      "10-12-2021": [
+        { description: "test3", isDone: false, id: 2, date: "10-12-2021" },
+      ],
+    });
+  });
 });

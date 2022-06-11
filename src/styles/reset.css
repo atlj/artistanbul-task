@@ -130,3 +130,8 @@ table {
 button {
   border: none;
 }
+
+input {
+  height: 10px;
+  min-width: 0px;
+}

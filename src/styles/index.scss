@@ -160,6 +160,17 @@ html {
   }
 }
 
+.todo-day-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 42px;
+
+  @include md {
+    width: auto;
+  }
+}
+
 .todo-day {
   display: flex;
   flex-direction: column;
@@ -203,6 +214,11 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0px;
+
+    &--clickable {
+      cursor: pointer;
+    }
 
     &--text {
       width: auto;
@@ -210,11 +226,24 @@ html {
       justify-content: flex-start;
       padding-left: 8px;
     }
+
+    &--text-active {
+      box-shadow: inset -4px -4px 16px rgba(39, 39, 39, 0.15),
+        inset 4px 4px 16px rgba(39, 39, 39, 0.15);
+    }
+  }
+
+  &--disabled {
+    color: $color-secondary;
   }
 
   &__check-icon {
     width: rem(20);
     height: rem(20);
+
+    &--hidden {
+      display: none;
+    }
   }
 
   &__edit-icon {

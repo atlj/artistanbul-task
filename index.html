@@ -21,54 +21,27 @@
         <button class="button button--primary" id="add-todo">
           Add New Task
         </button>
-        <div class="todo-day">
-          <div class="todo-day__date-row text text--h2">
-            <img
-              src="/icons/Calendar.svg"
-              alt="Calendar icon"
-              class="todo-day__date-row--icon"
-            />
-            Tuesday, March 12
-          </div>
-          <div class="todo">
-            <div class="todo__box">
-              <img
-                src="/icons/Check.svg"
-                alt="Check icon"
-                class="todo__check-icon"
-              />
-            </div>
-            <div class="todo__box todo__box--text text text--t1">Meet Ann</div>
-            <div class="todo__box">
-              <img
-                src="/icons/Edit.svg"
-                alt="Edit icon"
-                class="todo__edit-icon"
-              />
-            </div>
-            <div class="todo__box">
-              <img
-                src="/icons/Trash.svg"
-                alt="Delete icon"
-                class="todo__delete-icon"
-              />
-            </div>
-          </div>
-        </div>
+        <div class="todo-day-container" id="todo-day-container" />
       </div>
     </div>
     <div id="modal-screen" class="screen--hidden screen screen__modal">
       <form id="new-todo" class="modal">
         <div class="modal__section">
           <label for="title" class="text text--h2"> Title</label>
-          <input class="modal__input modal__input--title" name="title" />
+          <input
+            class="modal__input modal__input--title"
+            name="title"
+            id="modal-input-title"
+          />
         </div>
         <div class="modal__section">
           <label for="date" class="text text--h2">Date</label>
           <input type="date" class="modal__input" name="date" />
         </div>
         <div class="modal__button-container">
-          <button class="button button--secondary">Cancel</button>
+          <button class="button button--secondary" id="modal-cancel">
+            Cancel
+          </button>
           <button type="submit" class="button button--secondary">Save</button>
         </div>
       </form>
