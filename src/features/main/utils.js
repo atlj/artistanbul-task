@@ -125,3 +125,12 @@ function changeCheckIconToEditIcon(buttonNode) {
   buttonNode.children[0].remove();
   buttonNode.appendChild(editIcon);
 }
+
+export function sortDates(dates) {
+  return dates.sort((a, b) => {
+    const dateA = new Date(a);
+    const dateB = new Date(b);
+
+    return dateB - dateA;
+  });
+}

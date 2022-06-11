@@ -1,5 +1,5 @@
 import { User } from "../user";
-import { convertTodoDayToHtml } from "./utils";
+import { convertTodoDayToHtml, sortDates } from "./utils";
 
 function onClickAddNewTask(event) {
   event.preventDefault();
@@ -19,7 +19,9 @@ export function writeTodosToDom() {
 
   const todoDayContainer = document.getElementById("todo-day-container");
 
-  Object.keys(user.categorizedTodos).forEach((date) => {
+  const dates = sortDates(Object.keys(user.categorizedTodos));
+
+  dates.forEach((date) => {
     const todoDayNode = convertTodoDayToHtml(date, user.categorizedTodos[date]);
     todoDayContainer.appendChild(todoDayNode);
   });
