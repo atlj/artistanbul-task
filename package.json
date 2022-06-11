@@ -6,9 +6,11 @@
     "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "cypress": "cypress open baseUrl=http://localhost:3000"
   },
   "devDependencies": {
+    "cypress": "^10.1.0",
     "sass": "^1.52.3",
     "vite": "^2.9.9",
     "vitest": "^0.14.1"
