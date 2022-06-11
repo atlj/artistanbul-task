@@ -1,3 +1,5 @@
+import { User } from "../user";
+
 export function createNode(htmlString) {
   const div = document.createElement("div");
   div.innerHTML = htmlString.trim();
@@ -64,6 +66,10 @@ export function convertTodoToHtml(todo) {
 }
 
 export function addCallbacksToTodo(todoNode, id) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const username = urlParams.get("username");
+  const user = new User(username);
+
   const checkButton = todoNode.querySelector("#check-button");
   const checkIcon = todoNode.querySelector("#check-icon");
   const input = todoNode.querySelector("#todo-input");
@@ -71,6 +77,8 @@ export function addCallbacksToTodo(todoNode, id) {
   const deleteButton = todoNode.querySelector("#delete-button");
 
   checkButton.addEventListener("click", () => {
+    if (!input.disabled) return;
+
     if (checkIcon.classList.contains("todo__check-icon--hidden")) {
       checkIcon.classList.remove("todo__check-icon--hidden");
       input.classList.add("todo--disabled");
@@ -79,8 +87,7 @@ export function addCallbacksToTodo(todoNode, id) {
       input.classList.remove("todo--disabled");
     }
 
-    console.log("todo: write to localstorage");
-    console.log("todo: fix the the input bug");
+    user.toggleTodo(id);
   });
 
   editButton.addEventListener("click", () => {
@@ -95,16 +102,20 @@ export function addCallbacksToTodo(todoNode, id) {
       input.classList.remove("todo__box--text-active");
       input.disabled = true;
       changeCheckIconToEditIcon(editButton);
+      user.changeTodoDescription(id, input.value);
     }
-
-    console.log("todo: write to localstorage");
   });
 
   deleteButton.addEventListener("click", () => {
     todoNode.remove();
+    const date = user.todos.find((todo) => todo.id === id).date;
+    user.removeTodo(id);
 
-    console.log("todo: write to localstorage");
-    console.log("todo: delete date if there are no todos");
+    const todoDates = Object.keys(user.categorizedTodos);
+    if (!todoDates.includes(date)) {
+      const todoDay = document.getElementById(generateTodoDayId(date));
+      todoDay.remove();
+    }
   });
 }
 

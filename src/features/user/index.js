@@ -44,6 +44,13 @@ export class User {
     this.todos = changeTodoDescription(this.todos, id, description);
   }
 
+  toggleTodo(id) {
+    const todosCopy = [...this.todos];
+    const todoToToggle = todosCopy.find((todo) => todo.id === id);
+    todoToToggle.isDone = !todoToToggle.isDone;
+    this.todos = todosCopy;
+  }
+
   checkIfDateExists(date) {
     return this.categorizedTodos.hasOwnProperty(date);
   }

@@ -98,4 +98,17 @@ describe("User class", () => {
     user.addTodo({ description: "test", isDone: false, date: "10-10-2021" });
     expect(user.checkIfDateExists("10-10-2021")).toBe(true);
   });
+
+  it("should add todos then toggle one", () => {
+    const username = "test";
+    const user = new User(username);
+    user.addTodo({ description: "test", isDone: false, date: "10-10-2021" });
+    user.addTodo({ description: "test2", isDone: false, date: "10-10-2021" });
+    user.toggleTodo(0);
+
+    expect(user.todos).toStrictEqual([
+      { description: "test", isDone: true, id: 0, date: "10-10-2021" },
+      { description: "test2", isDone: false, id: 1, date: "10-10-2021" },
+    ]);
+  });
 });
