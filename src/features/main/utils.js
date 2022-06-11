@@ -107,14 +107,19 @@ export function addCallbacksToTodo(todoNode, id) {
   });
 
   deleteButton.addEventListener("click", () => {
-    todoNode.remove();
-    const date = user.todos.find((todo) => todo.id === id).date;
-    user.removeTodo(id);
+    if (!deleteButton.classList.contains("todo__box--warning")) {
+      deleteButton.classList.add("todo__box--warning");
+      changeDeleteIconToRedDeleteIcon(deleteButton);
+    } else {
+      todoNode.remove();
+      const date = user.todos.find((todo) => todo.id === id).date;
+      user.removeTodo(id);
 
-    const todoDates = Object.keys(user.categorizedTodos);
-    if (!todoDates.includes(date)) {
-      const todoDay = document.getElementById(generateTodoDayId(date));
-      todoDay.remove();
+      const todoDates = Object.keys(user.categorizedTodos);
+      if (!todoDates.includes(date)) {
+        const todoDay = document.getElementById(generateTodoDayId(date));
+        todoDay.remove();
+      }
     }
   });
 }
@@ -135,6 +140,15 @@ function changeCheckIconToEditIcon(buttonNode) {
 
   buttonNode.children[0].remove();
   buttonNode.appendChild(editIcon);
+}
+
+function changeDeleteIconToRedDeleteIcon(buttonNode) {
+  const markup = `<img src="/icons/TrashRed.svg" alt="Delete icon" class="todo__delete-icon" />`;
+
+  const redDeleteIcon = createNode(markup);
+
+  buttonNode.children[0].remove();
+  buttonNode.appendChild(redDeleteIcon);
 }
 
 export function sortDates(dates) {

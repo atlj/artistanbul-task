@@ -217,6 +217,10 @@ html {
     justify-content: center;
     padding: 0px;
 
+    &--warning {
+      border-color: $color-warning;
+    }
+
     &--clickable {
       cursor: pointer;
     }
