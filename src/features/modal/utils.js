@@ -15,8 +15,7 @@ export function addTodoToDate(todo, date) {
 }
 
 export function createTodoDayAndTodo(todo, date) {
-  const todoNode = convertTodoToHtml(todo);
-  const todoDayNode = convertTodoDayToHtml(date, [todoNode]);
+  const todoDayNode = convertTodoDayToHtml(date, [todo]);
 
   return todoDayNode;
 }

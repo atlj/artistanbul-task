@@ -20,7 +20,6 @@ function onSubmit(event) {
   const form = new FormData(this);
 
   if (validateNewTodoForm(form)) {
-    x;
     const date = form.get("date");
     const title = form.get("title");
     const id = user.lastId;
