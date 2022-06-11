@@ -22,13 +22,14 @@ function onSubmit(event) {
   if (validateNewTodoForm(form)) {
     const date = form.get("date");
     const title = form.get("title");
-    const id = user.lastId;
 
     if (user.checkIfDateExists(date)) {
       user.addTodo({ description: title, date, isDone: false });
+      const id = user.lastId;
       addTodoToDate({ description: title, isDone: false, id, date }, date);
     } else {
       user.addTodo({ description: title, date, isDone: false });
+      const id = user.lastId;
       writeTodoDayToDom(title, id, date);
     }
 
